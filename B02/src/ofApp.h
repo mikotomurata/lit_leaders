@@ -31,5 +31,7 @@ class ofApp : public ofBaseApp{
     ofCamera camera;
     ofImage background;
     
+    int r, g, b;
+    
 		
 };

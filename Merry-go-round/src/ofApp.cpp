@@ -8,13 +8,13 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    radian = atan2(mouseY-ofGetHeight()/2, mouseX-ofGetWidth()/2);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    cam.begin();
+    /*cam.begin();
     
     ofPushMatrix();
     ofRotateX(90);
@@ -26,6 +26,16 @@ void ofApp::draw(){
     
 
     cam.end();
+     */
+    float pie_w = 300;  //円グラフの幅
+    float pie_h = 300;  //円グラフの高さ
+      //通常の円グラフの始点にするため、スタート地点を設定
+    int angle0 = 60;  //グラフの角度
+    
+    
+    //中心点のx, 中心点のy, 幅, 高さ, 始点の角度, 終点の角度
+    //ofDrawC(ofGetWidth()/2, ofGetHeight()/2, pie_w, pie_h, 0, radian);
+    
 }
 
 //--------------------------------------------------------------
