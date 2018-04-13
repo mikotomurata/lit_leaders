@@ -20,7 +20,15 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+    
 		
     ofEasyCam cam;
+    
+    float phase;
     double radian;
+    float dist;
+    int c;
+    int d;
+    int radius;
+    ofTrueTypeFont verdana;
 };

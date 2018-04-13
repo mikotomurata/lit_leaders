@@ -5,12 +5,9 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    /*ofEnableAlphaBlending();
-    ofSetCircleResolution(60);
-    ofBackground(0, 0, 0);
-    
     ofSetFrameRate(60);
-    rotation = 0;*/
+    //ofSetBackgroundAuto(false);
+    ofBackground(255, 255, 255);
     
     
 
@@ -18,70 +15,48 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    //ofRotateY(180);
+    radian = -1*(atan2(mouseY-ofGetHeight()/2, mouseX-ofGetWidth()/2));
     
-    //rotation += mouseX / 4.0;
-    
-    
-    /*int a, b, sign, result, i;
-        
-        for(i = 0; i < 5; i++)
-        {
-            cout << "第１項 > ";
-            cin >> a;
-            cout << "第２項 > ";
-            cin >> b;
-            cout << "どれをしますか（1：加算，2：減算，3：乗算，4：除算） > ";
-            cin >> sign;
-            
-            switch(sign)
-            {
-                case 1:
-                    result = a + b; break;
-                case 2:
-                    result = a - b; break;
-                case 3:
-                    result = a * b; break;
-                case 4:
-                    result = a / b; break;
-                default:
-                    cout << "真面目にせんかい！" << endl;
-                    continue;
-            }
-            
-            cout << "答えは " << result << " です。" << endl;
-        }
-        return 0;
-    */
-    int a;
-    
-    cout << "何か値を入れてね > ";
-    cin >> a;
-    
-    cout << "その数を３で割った余りは"
-    << a % 3 << " です。" << endl;
-    
-    return 0;
-    
-    
-    
+    std::cout<<radian<<std::endl;
+    //phase += 0.01;
+    //radian = atan2(mouseY-ofGetHeight()/2, mouseX-ofGetWidth()/2);
+    dist = ofDist(mouseX, mouseY, ofGetWidth()/2, ofGetHeight()/2);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     
-   /* cam.begin();
-    ofRotateZ(rotation);
+    ofSetColor(0, 0, 0);
+    //円の描画
     
-    ofSetColor(0, 127, 255, 200);
-    ofDrawCircle(100, 0, mouseY / 2.0);
-    ofSetColor(255, 127, 0, 200);
-    ofDrawCircle(-100, 0, mouseY / 2.0);
-    
-    
-    cam.end();
-    */
-
+    if (-3<=radian && radian<=3) {
+     
+        if (-3<=radian && radian<=0) {
+            radian_1 = radian + 3;
+            
+            for (int i = 0; i<radian_1*19.5; i++) {
+               // ofDrawTriangle(0, 0, cos(i*PI/60)*dist, -1*sin(i*PI/60)*dist, cos(i*PI/60+PI/60)*dist, -1*sin(i*PI/60+PI/60)*dist);
+                ofDrawTriangle(0, 0, -1*cos(i*PI/60)*dist, sin(i*PI/60)*dist, -1*cos(i*PI/60+PI/60)*dist, sin(i*PI/60+PI/60)*dist);
+                for (int i =0; i<40; i++) {
+                     ofDrawTriangle(0, 0, cos(i*PI/40)*dist, -1*sin(i*PI/40)*dist, cos(i*PI/40+PI/40)*dist, -1*sin(i*PI/40+PI/40)*dist);
+                }
+            }
+        }
+        if (0<=radian && radian<=3) {
+            for (int i = 0; i<radian*19.5; i++) {
+                
+                // ofDrawTriangle(0, 0, -1*cos(i*PI/40)*dist, sin(i*PI/40)*dist, -1*cos(i*PI/40+PI/40)*dist, sin(i*PI/40+PI/40)*dist);
+                
+                ofDrawTriangle(0, 0, cos(i*PI/60)*dist, -1*sin(i*PI/60)*dist, cos(i*PI/60+PI/60)*dist, -1*sin(i*PI/60+PI/60)*dist);
+        }
+        
+        }
+        
+   
+}
 }
 
 //--------------------------------------------------------------

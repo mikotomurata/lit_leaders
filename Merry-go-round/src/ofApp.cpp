@@ -2,17 +2,28 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofBackground(0, 0, 0);
+    
+   // ofBackground(0, 0, 0);
+    ofSetFrameRate(60);
+    //ofSetBackgroundAuto(false);
+    ofBackground(255, 255, 255);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    radian = atan2(mouseY-ofGetHeight()/2, mouseX-ofGetWidth()/2);
+    radian = -1*(atan2(mouseY-ofGetHeight()/2, mouseX-ofGetWidth()/2));
+    std::cout<<radian<<std::endl;
+    //phase += 0.01;
+    //radian = atan2(mouseY-ofGetHeight()/2, mouseX-ofGetWidth()/2);
+    dist = ofDist(mouseX, mouseY, ofGetWidth()/2, ofGetHeight()/2);
+
 }
+
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     
     /*cam.begin();
     
@@ -27,18 +38,32 @@ void ofApp::draw(){
 
     cam.end();
      */
-    float pie_w = 300;  //円グラフの幅
-    float pie_h = 300;  //円グラフの高さ
-      //通常の円グラフの始点にするため、スタート地点を設定
-    int angle0 = 60;  //グラフの角度
     
+    //半径の設定
+    //float radius = dist;
+    //原点を画面の中心点に
     
-    //中心点のx, 中心点のy, 幅, 高さ, 始点の角度, 終点の角度
-    //ofDrawC(ofGetWidth()/2, ofGetHeight()/2, pie_w, pie_h, 0, radian);
+    //円の座標を三角関数を利用して計算
     
+    //色を指定
+    ofSetColor(0, 0, 0);
+    //円の描画
+    
+    if (0<=radian && radian<=1.5) {
+        for (int i = 0; i <= 30; i++) {
+            int cd =mouseX;
+            int ab = 50;
+            ofDrawTriangle(0, 0, cos(i/20*PI/6)*100, -1*sin(i/20*PI/6)*100, cos(i/20+PI/6)*100, -1*sin(i/20+PI/6)*100);
+        }
+    }
+     /*ofDrawTriangle(0, 0, cos(0)*dist, -1*sin(0)*dist, cos(PI/12)*dist, -1*sin(PI/12)*dist);
+     ofDrawTriangle(0, 0, cos(PI/12)*dist, -1*sin(PI/12)*dist, cos(PI/6)*dist, -1*sin(PI/6)*dist);
+    */
+    
+   
 }
-
-//--------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+    
 void ofApp::keyPressed(int key){
 
 }

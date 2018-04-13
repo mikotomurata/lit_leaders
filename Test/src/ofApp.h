@@ -25,4 +25,13 @@ class ofApp : public ofBaseApp{
     
     ofEasyCam cam;
     
+    float phase;
+    float radian;
+    float radian_1;
+    float dist;
+    int c;
+    int d;
+    int radius;
+    ofTrueTypeFont verdana;
+    
 };
