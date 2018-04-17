@@ -1,11 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxKinect.h"
-#include "ofxOpenCv.h"
+
 #include "ofxOpenNI.h"
 
 class ofApp : public ofBaseApp{
+private:
+    ofxOpenNI kinect;
 
 	public:
 		void setup();
@@ -24,11 +25,17 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    void exit();
+    ofPoint p[2];
+    ofPoint preP[2];
+    float acc[2];
+    int mode;
+    
+    /*
+     void exit();
     void drawPointCloud();
     ofxKinect kinect;
     int kinectAngle;
     ofEasyCam cam;
-    
+    */
 		
 };
