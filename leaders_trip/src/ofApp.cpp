@@ -24,16 +24,22 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    //dist = ofDist(200, 0, clickX, clickY);
-   // radius = dist / 2;
+    
+    dist = ofDist(0, 0, clickX, clickY);
+    radius = dist / 2;
     theta +=0.1;
+    angle = atan2(0-(200+clickX)/2, 0-clickY/2);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     
+    
+    for (int i = 0; i<50; i++) {
+        ofDrawLine(i*a, -ofGetHeight(), i*a, ofGetHeight());
+        ofDrawLine(-ofGetWidth(), i*b, ofGetWidth(), i*b);
+    }
     
     //基準(200, 0);
     //地球モデルの代わり
@@ -46,11 +52,7 @@ void ofApp::draw(){
     
     //扇型
     //ofNoFill();
-    ofPath curve;
-    ofSetColor(255);
-    curve.arc(0, 0, 200, 200, 0, 180);
-    curve.setCircleResolution(60);
-    curve.draw();
+    
     
    //軌道に乗って動く
     if (theta < PI) {
@@ -59,8 +61,13 @@ void ofApp::draw(){
         ofDrawCircle(cos(theta)*200, sin(theta)*200, 50);
     }
     
+    ofPath curve;
+    ofSetColor(255);
+    curve.arc((200+clickX)/2, clickY/2, radius, radius, 0+angle*180/PI, 180+angle*180/PI);
+    curve.setCircleResolution(60);
+    curve.draw();
     
-
+    
 }
 
 //--------------------------------------------------------------

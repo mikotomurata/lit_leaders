@@ -25,9 +25,12 @@ class ofApp : public ofBaseApp{
     /*ofxCsv csv;
     ofVboMesh mesh;
     */
-    float dist, radius;
+    float dist, radius, angle;
     int clickX, clickY;
     double theta;
+    //仮
+    int a = ofGetWidth()/50;
+    int b = ofGetHeight()/50;
     
     
     ofEasyCam cam;

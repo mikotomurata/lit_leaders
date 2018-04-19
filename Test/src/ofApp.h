@@ -21,17 +21,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    int rotation;
-    
+    float theta, angle;
+    int clickX, clickY, radius, dist;
     ofEasyCam cam;
-    
-    float phase;
-    float radian;
-    float radian_1;
-    float dist;
-    int c;
-    int d;
-    int radius;
-    ofTrueTypeFont verdana;
-    
 };
