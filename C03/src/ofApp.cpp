@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetVerticalSync(true);
-    
+    ofEnableAlphaBlending();
     cam.setOrientation(ofPoint(-20,0,0));
     glEnable(GL_DEPTH_TEST);//深さを有効
     
@@ -66,7 +66,7 @@ void ofApp::draw(){
             
             ofSetColor(255);
             ofDrawSphere(fingerPos.at(20*i+4*f+0), 10);
-            
+    
             ofSetColor(200);
             ofDrawSphere(fingerPos.at(20*i+4*f+1), 10);
             
@@ -81,15 +81,21 @@ void ofApp::draw(){
             ofDrawLine(fingerPos.at(20*i+4*f+1), fingerPos.at(20*i+4*f+2));
             ofDrawLine(fingerPos.at(20*i+4*f+2), fingerPos.at(20*i+4*f+3));
             
+            cout << fingerPos.at(20*i+4*f+0) << endl;
+            
         }
     }
-    if(simpleHands.size()==2){
+    ofSetColor(0, 0, 255,100);
+    ofDrawSphere(0, 0, 200);
+    
+    
+    /*if(simpleHands.size()==2){
         float distance=sqrt(pow(handPos.at(0).x - handPos.at(1).x,2)
                             +pow(handPos.at(0).y - handPos.at(1).y,2)
                             +pow(handPos.at(0).z - handPos.at(1).z,2));
         ofSetColor(227, 100);
         ofDrawSphere((handPos.at(0).x+handPos.at(1).x)/2, (handPos.at(0).y+handPos.at(1).y)/2, (handPos.at(0).z+handPos.at(1).z)/2,distance/2);
-    }
+    }*/
     
     
     

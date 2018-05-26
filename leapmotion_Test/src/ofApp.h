@@ -29,7 +29,6 @@ class ofApp : public ofBaseApp{
     vector<ofVec3f> fingerPos;
     vector<ofVec3f> handPos;
     ofSpherePrimitive sphere;
-    ofVec3f finger_tip;
     float dist, radius, angle, theta, endPoint, angle2;
     ofEasyCam cam;
 };

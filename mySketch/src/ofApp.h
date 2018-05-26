@@ -27,7 +27,10 @@ class ofApp : public ofBaseApp{
     
     ofBoxPrimitive box, mBox[NUM];
     
-    int boxSize;
+    int boxSize, clickX, clickY;
+    ofVec2f point[100];
+    
     
     ofEasyCam cam;
+    
 };

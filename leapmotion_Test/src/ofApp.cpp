@@ -10,8 +10,6 @@ void ofApp::setup(){
     glEnable(GL_NORMALIZE);//法線ベクトルの自動正規化
     
     leap.open();
-
-    theta = PI;
 }
 
 //--------------------------------------------------------------
@@ -85,7 +83,7 @@ void ofApp::draw(){
 //          弧の半径
             radius = (ofDist(fingerPos.at(7).x, fingerPos.at(7).y, fingerPos.at(7).z, 200, 0, 0))/2;
             
-            if (dist <= 200 && 185 <= dist) {
+            if (dist <= 250 && 240 <= dist) {
 //                ofSetColor(255, 0, 0);
 //                ofDrawSphere(100, 0, 0, 50);
 //          弧の中心
@@ -95,38 +93,43 @@ void ofApp::draw(){
             center.z = fingerPos.at(7).z/2;
                 
             angle = atan2(200-fingerPos.at(7).x, 0-fingerPos.at(7).y);
-//            ofPushMatrix();
-//            ofTranslate(200, 0);
-//            ofRotateY(-90);
-//            ofRotateX(-90);
-//            endPoint = atan2(fingerPos.at(7).x-200, 0-fingerPos.at(7).y);
+//(200, 0)に対する傾き
+            ofPushMatrix();
+            ofTranslate(200, 0);
+            ofRotateY(-90);
+            ofRotateX(-90);
+            endPoint = atan2(fingerPos.at(7).z,fingerPos.at(7).x+200);
 //            cout << endPoint/PI*180 << endl;
+            ofPopMatrix();
+//            X軸対する傾き
                 ofPushMatrix();
                 ofRotateY(-90);
                 angle2 = atan2(fingerPos.at(7).x, 0-fingerPos.at(7).y);
-                cout << angle2/PI*180 << endl;
                 ofPopMatrix();
             ofPushMatrix();
             ofTranslate(center.x, center.y, center.z);
-            ofRotate(-1*angle/PI*180+90);
-                
-            if(fingerPos.at(7).y<= 0){
-                theta -=0.01;
-            //    弧を描く
-            for (float i = 0; i < PI; i+=0.001){
-                ofSetColor(255);
-                ofDrawCircle(-1*cos(i)*radius, -1*sin(i)*radius, 1);
-                    }
-            //    飛行機の代わり
-                if (radius > 0) {
-                    if (theta > -1*PI) {
-                        ofSetColor(255, 120);
-                        ofDrawCircle(cos(theta)*radius, sin(theta)*radius, 25);
-                    }
-                }
-            
+            ofRotateZ(-1*angle/PI*180+90);
 
-            }else if(fingerPos.at(7).y > 0){
+            ofRotateX(angle2/PI*180+180);
+                
+//            if(fingerPos.at(7).y<= 0){
+//                theta -=0.01;
+//            //    弧を描く
+//            for (float i = 0; i < PI; i+=0.001){
+//                ofSetColor(255);
+//                ofDrawCircle(-1*cos(i)*radius, -1*sin(i)*radius, 1);
+//                    }
+//            //    飛行機の代わり
+//                if (radius > 0) {
+//                    if (theta > -1*PI) {
+//                        ofSetColor(255, 120);
+//                        ofDrawCircle(cos(theta)*radius, sin(theta)*radius, 25);
+//                    }
+//                }
+//
+
+//            }
+//            else if(fingerPos.at(7).y > 0){
                 theta +=0.01;
                     //    弧を描く
                     for (float i = 0; i < PI; i+=0.001) {
@@ -140,7 +143,7 @@ void ofApp::draw(){
                         ofDrawCircle(cos(theta)*radius, sin(theta)*radius, 25);
                     }
                 }
-            }
+//            }
             ofPopMatrix();
             }else{
                 theta = 0;
@@ -150,7 +153,7 @@ void ofApp::draw(){
     
     //地球の代わり
     ofSetColor(0, 100, 255,120);
-    ofDrawSphere(0, 0, 200);
+    ofDrawSphere(0, 0, 250);
     
     cam.end();
     

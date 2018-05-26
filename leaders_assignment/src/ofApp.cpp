@@ -103,8 +103,6 @@ void ofApp::draw(){
             if (ofGetFrameNum()/2 % 2 == 0) {
                 d = 5;
                 radius = dist / 3 +d;
-                //verdana.drawString(radius, mouseX+20,mouseY+15 );
-                
                 
             }else if (ofGetFrameNum()/2 % 2 ==1){
                 d = -5;
