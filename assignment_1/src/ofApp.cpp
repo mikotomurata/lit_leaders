@@ -52,32 +52,32 @@ void ofApp::draw(){
         y1 = ofRandom(ofGetHeight());
         radius1 = 0;
     }
-    if (radius2 > 175){
-        color2 = ofColor::fromHsb(ofRandom(255), 255,255);
-        x2 = ofRandom(ofGetWidth());
-        y2 = ofRandom(ofGetHeight());
-        radius2 = 0;
-    }
-    if (radius3 > 300){
-        color3 = ofColor::fromHsb(ofRandom(255), 255,255);
-        x3 = ofRandom(ofGetWidth());
-        y3 = ofRandom(ofGetHeight());
-        radius3 = 0;
-    }
+//    if (radius2 > 175){
+//        color2 = ofColor::fromHsb(ofRandom(255), 255,255);
+//        x2 = ofRandom(ofGetWidth());
+//        y2 = ofRandom(ofGetHeight());
+//        radius2 = 0;
+//    }
+//    if (radius3 > 300){
+//        color3 = ofColor::fromHsb(ofRandom(255), 255,255);
+//        x3 = ofRandom(ofGetWidth());
+//        y3 = ofRandom(ofGetHeight());
+//        radius3 = 0;
+//    }
     
     if (0< radius1 && radius1 < 75) {
         ofSetColor(color1);
         ofDrawCircle(x1, y1, radius1);
     }
-    if (radius2 < 175){
-        ofSetColor(color2);
-        ofDrawCircle(x2, y2, radius2);
-    }
-    if (radius3 < 400){
-        ofSetColor(color3);
-        ofDrawCircle(x3, y3, radius3);
-    }
-    
+//    if (radius2 < 175){
+//        ofSetColor(color2);
+//        ofDrawCircle(x2, y2, radius2);
+//    }
+//    if (radius3 < 400){
+//        ofSetColor(color3);
+//        ofDrawCircle(x3, y3, radius3);
+//    }
+//
     
   
     
