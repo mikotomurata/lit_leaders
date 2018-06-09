@@ -9,6 +9,7 @@ void ofApp::setup(){
     //ofSetFrameRate(60);
     ofTrueTypeFont::setGlobalDpi(50);
     
+    
         
     ofSetCircleResolution(60);
 }

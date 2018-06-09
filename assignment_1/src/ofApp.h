@@ -24,6 +24,6 @@ class ofApp : public ofBaseApp{
 //    int x[3], y[3];
     int x1, y1, x2, y2, x3, y3;
 //    float radius[3];
-    float radius1, radius2, radius3;
+    int radius1, radius2, radius3;
     ofColor color1, color2, color3;
 };
